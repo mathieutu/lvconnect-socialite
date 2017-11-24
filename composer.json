@@ -1,0 +1,25 @@
+{
+    "name": "mathieutu/lvconnect-socialite",
+    "description": "LVConnect OAuth2 Provider for Laravel Socialite",
+    "license": "MIT",
+    "authors": [{
+        "name": "Mathieu TUDISCO",
+        "email": "dev@mathieutu.ovh"
+    }],
+    "require": {
+        "php": ">= 7.0",
+        "socialiteproviders/manager": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "MathieuTu\\LVConnectSocialite\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MathieuTu\\LVConnectSocialite\\ServiceProvider"
+            ]
+        }
+    }
+}
