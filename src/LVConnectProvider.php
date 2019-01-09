@@ -12,13 +12,9 @@ class LVConnectProvider extends AbstractProvider
     protected $scopes = ['profile:get'];
     protected $scopeSeparator = ' ';
 
-    protected $url = 'https://lvconnect.link-value.fr';
-
     public function __construct(Request $request, string $clientId, string $clientSecret, string $redirectUrl, array $guzzle = [])
     {
         parent::__construct($request, $clientId, $clientSecret, $redirectUrl, $guzzle);
-
-        $this->url = $this->config['url'] ?? $this->url;
     }
 
     protected function getAuthUrl($state)
@@ -50,9 +46,11 @@ class LVConnectProvider extends AbstractProvider
         ]);
     }
 
-    private function url(string $uri): string
+    private function url(string $path): string
     {
-        return rtrim($this->url, '/') . '/' . ltrim($uri, '/');
+        $url = $this->getConfig('url', 'https://lvconnect.link-value.fr');
+
+        return rtrim($url, '/') . $path;
     }
 
     public static function additionalConfigKeys()
