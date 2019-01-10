@@ -27,6 +27,11 @@ class LVConnectProvider extends AbstractProvider
         return $this->url('/oauth/token');
     }
 
+    protected function getTokenFields($code)
+    {
+        return parent::getTokenFields($code) + ['grant_type' => 'authorization_code'];
+    }
+
     protected function getUserByToken($token): array
     {
         $response = $this->getHttpClient()->get($this->url('/users/me'), [
@@ -46,15 +51,15 @@ class LVConnectProvider extends AbstractProvider
         ]);
     }
 
+    public static function additionalConfigKeys()
+    {
+        return ['url'];
+    }
+
     private function url(string $path): string
     {
         $url = $this->getConfig('url', 'https://lvconnect.link-value.fr');
 
         return rtrim($url, '/') . $path;
-    }
-
-    public static function additionalConfigKeys()
-    {
-        return ['url'];
     }
 }
