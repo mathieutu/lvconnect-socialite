@@ -8,7 +8,7 @@
         "email": "dev@mathieutu.ovh"
     }],
     "require": {
-        "php": ">= 7.0",
+        "php": ">= 7.1",
         "socialiteproviders/manager": "^3.3",
         "ext-json": "*"
     },

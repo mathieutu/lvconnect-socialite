@@ -8,7 +8,7 @@ use SocialiteProviders\Manager\OAuth2\User;
 
 class LVConnectProvider extends AbstractProvider
 {
-    const IDENTIFIER = 'LVCONNECT';
+    public const IDENTIFIER = 'LVCONNECT';
     protected $scopes = ['profile:get'];
     protected $scopeSeparator = ' ';
 
