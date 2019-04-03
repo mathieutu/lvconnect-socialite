@@ -12,7 +12,7 @@ class ServiceProvider extends BaseServiceProvider
         $this->app['events']->listen(
             SocialiteWasCalled::class,
             function (SocialiteWasCalled $socialite) {
-                $socialite->extendSocialite('lvconnect', LVConnectProvider::class);
+                $socialite->extendSocialite(LVConnectProvider::IDENTIFIER, LVConnectProvider::class);
             }
         );
     }
