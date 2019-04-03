@@ -15,5 +15,9 @@ class ServiceProvider extends BaseServiceProvider
                 $socialite->extendSocialite(LVConnectProvider::IDENTIFIER, LVConnectProvider::class);
             }
         );
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([LvConnectPublish::class]);
+        }
     }
 }

@@ -1,0 +1,9 @@
+
+/* ----- Auth -------------------------------------------------------------------- */
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('login', \App\Http\Controllers\Login\ShowLogin::class)->name('login');
+    Route::get('lvconnect', \App\Http\Controllers\Login\RedirectToLVConnect::class)->name('lvconnect');
+    Route::get('login/callback', \App\Http\Controllers\Login\HandleSocialiteCallback::class);
+});
+
+Route::get('logout', \App\Http\Controllers\Login\Logout::class)->middleware('auth')->name('logout');

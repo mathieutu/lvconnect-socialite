@@ -43,10 +43,13 @@ See [Laravel docs](https://laravel.com/docs/master/socialite) on socialite usage
 * You should now be able to use it like you would regularly use Socialite.
 
 ```php
-return $socialite->driver('lvconnect')->redirect();
+return $socialite->driver('LVCONNECT')->redirect();
 ```
 
-**You can find a full example in [example](https://github.com/mathieutu/lvconnect-socialite/tree/master/example) folder**
+**You can publish all the [auth scaffolding](https://github.com/mathieutu/lvconnect-socialite/tree/master/src/stubs) with the following command:**
+```bash 
+php artisan lvconnect:publish
+```
 
 ### Stateless
 
@@ -121,4 +124,4 @@ This LVConnect Socialite package is an open-sourced software licensed under the 
 
 ## Contributing
 
-Issues and PRs are obviously welcomed and encouraged, as well for new features than documentation.
+Issues and PRs are obviously welcomed and encouraged, for features as well as documentation.
