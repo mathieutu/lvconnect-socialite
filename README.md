@@ -36,6 +36,15 @@ If you want to do some test with another url that production one, you can option
     'url' => 'https://lvconnect-staging.herokuapp.com',
 ```
 
+#### Fill your `.env` / environment variables:
+[Create your application](https://lvconnect.link-value.fr/dashboard/apps/new) in the LVConnect website and fill the information in your env:
+
+```dotenv
+LVCONNECT_ID=XXXX
+LVCONNECT_SECRET=XXXX
+LVCONNECT_CALLBACK=http://my-full-website-url.localhost/login/callback
+```
+
 ## Usage
 
 See [Laravel docs](https://laravel.com/docs/master/socialite) on socialite usage.
@@ -43,7 +52,7 @@ See [Laravel docs](https://laravel.com/docs/master/socialite) on socialite usage
 * You should now be able to use it like you would regularly use Socialite.
 
 ```php
-return $socialite->driver('LVCONNECT')->redirect();
+return $socialite->driver('lvconnect')->redirect();
 ```
 
 **You can publish all the [auth scaffolding](https://github.com/mathieutu/lvconnect-socialite/tree/master/src/stubs) with the following command:**
