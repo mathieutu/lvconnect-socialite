@@ -5,7 +5,7 @@
     "homepage": "https://github.com/mathieutu/lvconnect-socialite",
     "authors": [{
         "name": "Mathieu TUDISCO",
-        "email": "dev@mathieutu.ovh"
+        "email": "oss@mathieutu.dev"
     }],
     "require": {
         "php": ">= 7.1",
