@@ -1,5 +1,8 @@
 
 /* ----- Auth -------------------------------------------------------------------- */
+
+// TODO Remove $namespace in RoutingServiceProvider.
+
 Route::group(['middleware' => 'guest'], function () {
     Route::get('login', \App\Http\Controllers\Login\ShowLogin::class)->name('login');
     Route::get('lvconnect', \App\Http\Controllers\Login\RedirectToLVConnect::class)->name('lvconnect');

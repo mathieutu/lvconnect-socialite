@@ -161,7 +161,8 @@
                 </g>
             </svg>
             <div class="login--logo">
-                Titre ou image de l'appli <img src="https://lv.facilit.io/img/logo.svg" alt="Mon appli">
+                Titre ou logo de l'appli<br>
+                <img src="https://lv.facilit.io/img/logo.svg" alt="Mon appli">
             </div>
             <a href="{{ route('lvconnect') }}" class="button">Se connecter avec LVConnect</a>
         </div>

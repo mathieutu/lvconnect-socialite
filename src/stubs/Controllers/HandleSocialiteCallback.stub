@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Login;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Contracts\Factory as Socialite;
-use Illuminate\Contracts\Auth\Guard as Auth;
+use Illuminate\Contracts\Auth\Factory as Auth;
 use Illuminate\Contracts\Routing\ResponseFactory as Response;
 use MathieuTu\LVConnectSocialite\LVConnectProvider;
 use Laravel\Socialite\Contracts\User as SocialiteUser;
-use App\Models\User;
+use App\User; // TODO Replace with proper User class.
 
 
 class HandleSocialiteCallback
@@ -18,15 +18,16 @@ class HandleSocialiteCallback
     {
         $socialiteUser = $socialite->driver(LVConnectProvider::IDENTIFIER)->user();
 
-        $auth->login($this->findOrCreateUser($socialiteUser), true);
+        $auth->guard()->login($this->findOrCreateUser($socialiteUser), true);
 
         return $response->redirectToIntended();
     }
 
-    protected function findOrCreateUser(SocialiteUser $LVConnectUser): Authenticatable
+    protected function findOrCreateUser(SocialiteUser $LVConnectUser): User
     {
         $user = User::firstOrNew(['email' => $LVConnectUser->getEmail()]);
 
+        // TODO Update users table.
         $user->fill([
             'first_name' => Str::title($LVConnectUser['firstName']),
             'last_name' => Str::upper($LVConnectUser['lastName']),
