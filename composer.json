@@ -10,7 +10,7 @@
     "require": {
         "php": ">= 7.1",
         "socialiteproviders/manager": "^3.3",
-        "illuminate/console": "~5.7",
+        "illuminate/console": "~6.18",
         "ext-json": "*"
     },
     "autoload": {
